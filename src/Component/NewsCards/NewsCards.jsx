@@ -9,7 +9,7 @@ const NewsCards = () => {
             .then((res) => res.json())
             .then((data) => setCardData(data))
     }, []);
-    console.log(cardData);
+    //console.log(cardData);
     return (
 
 

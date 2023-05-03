@@ -12,6 +12,8 @@ import NoFound from './Component/NoFound/NoFound.jsx';
 import Home from './Component/Home/Home.jsx';
 import Register from './Component/Register/Register.jsx';
 import NewsCards from './Component/NewsCards/NewsCards.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
+import PrivateRouts from './routes/PrivateRouts.jsx';
 
 
 
@@ -21,8 +23,8 @@ const router = createBrowserRouter([
     element: <App></App>,
     children: [
       {
-        path: '/home',
-        element: <Home></Home>,
+        path: '/',
+        element: <PrivateRouts><Home></Home></PrivateRouts>,
 
 
 
@@ -48,6 +50,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
