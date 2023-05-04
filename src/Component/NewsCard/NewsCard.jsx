@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const NewsCard = ({ info }) => {
-    const { id, name, experience, address, picture,items,like } = info;
+    const { id, name, experience, address, picture,items,like }= info;
 
     return (
         <Container >
@@ -23,8 +23,6 @@ const NewsCard = ({ info }) => {
                                 <p>Address: {address}</p>
                                 <p><FaRegHandPointRight></FaRegHandPointRight> Like:{like} </p>
                             
-                                
-
                             </Card.Text>
                             <Button variant="outline-primary " >
                                 <Link className='text-secondary' to="/viewDetails">View Details</Link> 
