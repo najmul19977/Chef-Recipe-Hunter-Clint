@@ -19,5 +19,4 @@ const ViewCard = ({ info }) => {
         </Container>
     );
 };
-
 export default ViewCard;
