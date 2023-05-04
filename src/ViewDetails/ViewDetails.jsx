@@ -5,7 +5,7 @@ const ViewDetails = () => {
 
     const [viewDetails, setViewDetails] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/recipeData')
+        fetch('https://chef-recipe-servers-najmul19977.vercel.app/recipeData')
             .then((res) => res.json())
             .then((data) => setViewDetails(data))
     }, []);

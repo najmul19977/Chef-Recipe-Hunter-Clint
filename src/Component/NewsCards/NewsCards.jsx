@@ -5,7 +5,7 @@ import NewsCard from '../NewsCard/NewsCard';
 const NewsCards = () => {
     const [cardData, setCardData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/chefData')
+        fetch('https://chef-recipe-servers-najmul19977.vercel.app/chefData')
             .then((res) => res.json())
             .then((data) => setCardData(data))
     }, []);

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
@@ -6,6 +6,7 @@ import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from
 import app from '../../firebase/firebase_config';
 
 const Login = () => {
+    const [err,setErr] =useState('');
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider();
     const githubprovider = new GithubAuthProvider();
@@ -61,6 +62,7 @@ const Login = () => {
         })
         .catch(error =>{
             console.log(error);
+            setErr(error);
         })
     }
     return (
@@ -69,12 +71,12 @@ const Login = () => {
             <Form onSubmit={handleLogin}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required/>
+                    <Form.Control type="email" name='email' placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
+                    <Form.Control type="password" name='password' placeholder="Password"  />
                 </Form.Group>
                
                 <Button className='mb-3' variant="primary" type="submit">
@@ -85,6 +87,9 @@ const Login = () => {
 
                 Don't Have An Accpunt?<Link to="/register">Register</Link>
             </Form>
+            <div>
+                {err && <h3>provide valid information</h3>}
+            </div>
         </Container>
     );
 };
