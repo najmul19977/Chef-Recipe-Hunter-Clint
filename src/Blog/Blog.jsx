@@ -6,7 +6,6 @@ const Blog = () => {
     const ref = React.createRef();
     return (
         <Container>
-
             <div>
                 <Pdf targetRef={ref} filename="code-example.pdf">
                     {({ toPdf }) => <button onClick={toPdf}>Generate Pdf</button>}
@@ -28,9 +27,6 @@ const Blog = () => {
                 <p>ans:Express is a minimal and flexible node. js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications. On the other hand, Node. js is detailed as A platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.</p>
                 <p>Q4.What is a custom hook, and why will you create a custom hook?</p>
                 <p>ans:Custom React JS hooks offer reusability as when a custom hook is created, it can be reused easily, which makes the code cleaner and reduces the time to write the code. It also enhances the rendering speed of the code as a custom hook does not need to be rendered again and again while rendering the whole code.</p>
-
-
-
             </div>
 
 
