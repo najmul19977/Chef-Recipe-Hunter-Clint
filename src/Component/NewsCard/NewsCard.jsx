@@ -1,9 +1,12 @@
 import React from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { FaRegHandPointRight } from 'react-icons/fa';
+
+import { Link } from 'react-router-dom';
 
 
 const NewsCard = ({ info }) => {
-    const { id, name, experience, address, picture,items } = info;
+    const { id, name, experience, address, picture,items,like } = info;
 
     return (
         <Container >
@@ -18,10 +21,14 @@ const NewsCard = ({ info }) => {
                                 <p>Experience: {experience} years</p>
                                 <p>Number of Recipes: {items} items</p>
                                 <p>Address: {address}</p>
+                                <p>Like:{like} <FaRegHandPointRight></FaRegHandPointRight></p>
+                            
                                 
 
                             </Card.Text>
-                            <Button variant="primary">View Details</Button>
+                            <Button variant="outline-primary " >
+                                <Link className='text-secondary' to="/viewDetails">View Details</Link> 
+                            </Button>
                         </Card.Body>
                     </Card>
                 </Col>

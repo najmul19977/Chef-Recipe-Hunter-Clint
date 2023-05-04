@@ -14,6 +14,8 @@ import Register from './Component/Register/Register.jsx';
 import NewsCards from './Component/NewsCards/NewsCards.jsx';
 import AuthProvider from './Providers/AuthProvider.jsx';
 import PrivateRouts from './routes/PrivateRouts.jsx';
+import ViewDetails from './ViewDetails/ViewDetails.jsx';
+import Blog from './Blog/Blog.jsx';
 
 
 
@@ -24,10 +26,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <PrivateRouts><Home></Home></PrivateRouts>,
+        element: <Home></Home>,
 
 
 
+      },
+      {
+        path:"/viewDetails",
+        element:<PrivateRouts><ViewDetails></ViewDetails></PrivateRouts>
       },
       {
         path: '/login',
@@ -36,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
       },
       {
         path: '*',
