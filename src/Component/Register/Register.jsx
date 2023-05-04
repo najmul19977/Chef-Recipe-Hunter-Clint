@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
         const {createUser} =useContext(AuthContext);
+        const [err,setErr] = useState('');
 
         const handleRegister = (event) =>{
             event.preventDefault();
@@ -13,6 +14,15 @@ const Register = () => {
             const photo = form.photo.value;
             const email = form.email.value;
             const password =form.password.value;
+
+            if(email<1){
+                setErr('email not valid');
+            }
+            else if(password.length<6){
+                setErr('provide six degite password');
+
+            }
+
 
             console.log(name,photo,email,password);
             createUser(email,password)
@@ -37,16 +47,16 @@ const Register = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='photo' placeholder="Enter Photo URL" required/>
+                    <Form.Control type="text" name='photo' placeholder="Enter Photo URL" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='email' placeholder="Enter email" required/>
+                    <Form.Control type="email" name='email' placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name='password' placeholder="Password" required />
+                    <Form.Control type="password" name='password' placeholder="Password"  />
                 </Form.Group>
                
                 <Button variant="primary" type="submit">
@@ -54,6 +64,9 @@ const Register = () => {
                 </Button> <br />
                 Already Have An Account?<Link to="/login">Login</Link>
             </Form>
+            <div>
+                <h2>{err}</h2>
+            </div>
         </Container>
     );
 };
