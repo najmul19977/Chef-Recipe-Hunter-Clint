@@ -21,7 +21,7 @@ const NewsCard = ({ info }) => {
                                 <p>Experience: {experience} years</p>
                                 <p>Number of Recipes: {items} items</p>
                                 <p>Address: {address}</p>
-                                <p>Like:{like} <FaRegHandPointRight></FaRegHandPointRight></p>
+                                <p><FaRegHandPointRight></FaRegHandPointRight> Like:{like} </p>
                             
                                 
 
